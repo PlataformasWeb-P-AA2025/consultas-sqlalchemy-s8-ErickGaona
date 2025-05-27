@@ -33,7 +33,7 @@ tareas = session.query(Tarea)\
         "Charles Harris"
  ])).group_by(Tarea.id).all()
 #agrupamos las tareas por id 
-# Mostramos los resultados
+
 for tarea in tareas:
     num_entregas = len(tarea.entregas)  # Contamos cuántas entregas tiene esa tarea
     print(f"Tarea: {tarea.titulo}, Número de entregas: {num_entregas}")
