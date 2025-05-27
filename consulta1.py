@@ -23,15 +23,13 @@ session = Session()
 #        filter(Departamento.nombre.like("%Arte%")).all()
 
 entregas = session.query(Entrega # uni con la tabla Tarea 
- 
-).join(Entrega.tarea)\
- .join(Tarea.curso)\
+).join(Tarea.curso)\
  .join(Curso.departamento)\
  .filter(Departamento.nombre.like("%Arte%")).all()
 #aplique un filtro para obtener solo las entregas de cursos del departamento "Arte"
 
 for entrega in entregas:
-    print(f"Tarea: {entrega.tarea.titulo}, Estudiante: {entrega.estudiante.nombre}, "
+    print(f"Estudiante: {entrega.estudiante.nombre}, "
           f"Calificación: {entrega.calificacion}, Instructor: {entrega.tarea.curso.instructor.nombre}, "
           f"Departamento: {entrega.tarea.curso.departamento.nombre}")
 
