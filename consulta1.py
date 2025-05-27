@@ -36,7 +36,6 @@ for entrega in entregas:
 
 # Recorremos todas las entregas obtenidas
 #for entrega in entregas:
-    # Mostramos el título de la tarea
     # el nombre del estudiante que la entregó
     # la calificación recibida
     # el nombre del instructor del curso
