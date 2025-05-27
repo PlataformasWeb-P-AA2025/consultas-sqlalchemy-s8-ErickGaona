@@ -20,13 +20,13 @@ session = Session()
 
 
 departamentos = session.query(Departamento)\
-    .join(Departamento.cursos)\
     .join(Curso.tareas)\
     .join(Tarea.entregas)\
     .filter(Entrega.calificacion <= 0.3)\
+    .group_by(Departamento.id)\
     .all()
 # traigo todos los departamentos que tengan entregas con calificación <= 0.3
-
+# con el groupby evito duplicados cuando hago joins con las demas tablas relacionadas ("solo una vez cada departamento")
 # Mostramos los resultados
 for dep in departamentos:
     # cuento manualmente cuantos cursos tiene el depa
