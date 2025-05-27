@@ -25,7 +25,8 @@ from sqlalchemy import func
 
 # Consulta: Obtener tareas asignadas a ciertos estudiantes y cuántas entregas tiene cada una
 tareas = session.query(Tarea)\
-    .join(Entrega.estudiante)\
+    .join(Entrega)\
+    .join(Estudiante)\
     .filter(Estudiante.nombre.in_([             
          "Jennifer Bolton", 
         "Elaine Perez", 
@@ -35,6 +36,7 @@ tareas = session.query(Tarea)\
 #agrupamos las tareas por id 
 
 for tarea in tareas:
+
     num_entregas = len(tarea.entregas)  # Contamos cuántas entregas tiene esa tarea
-    print(f"Tarea: {tarea.titulo}, Número de entregas: {num_entregas}")
+    print(f"Tarea_id: {tarea.id}, Tarea: {tarea.titulo}, Número de entregas: {num_entregas}")
 
