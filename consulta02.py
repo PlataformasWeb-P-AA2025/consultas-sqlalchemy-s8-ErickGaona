@@ -24,7 +24,6 @@ departamentos = session.query(Departamento)\
     .join(Curso.tareas)\
     .join(Tarea.entregas)\
     .filter(Entrega.calificacion <= 0.3)\
-    .group_by(Departamento.id)\
     .all()
 # traigo todos los departamentos que tengan entregas con calificación <= 0.3
 
