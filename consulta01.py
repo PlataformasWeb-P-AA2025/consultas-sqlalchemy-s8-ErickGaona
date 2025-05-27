@@ -22,10 +22,10 @@ session = Session()
 #clase = session.query(Departamento).join(Estudiante).\
 #        filter(Departamento.nombre.like("%Arte%")).all()
 
-entregas = session.query(Entrega # uni con la tabla Tarea 
-).join(Tarea.curso)\
- .join(Curso.departamento)\
- .filter(Departamento.nombre.like("%Arte%")).all()
+entregas = session.query(Entrega)\
+  .join(Tarea.curso)\
+  .join(Curso.departamento)\
+  .filter(Departamento.nombre.like("%Arte%")).all()
 #aplique un filtro para obtener solo las entregas de cursos del departamento "Arte"
 
 for entrega in entregas:
